@@ -1,13 +1,17 @@
 body{
     font-family: 'Montserrat', sans-serif;
-    margin:0;
+
+    margin:0;    /* sets all four margins (top, right, bottom, and left) of an element to 0 */
     background-color: black;
     color:white;
-    overflow:hidden;
+    /*overflow:hidden;*/
+    overflow: auto; /* Allow scrolling */
 }
+
 .main{
     display:flex;
-    height:100vh;
+    /*flex-direction: column;  Ensure it stacks vertically on small screens  (iski wajh se poora neeche hogya tha)*/  
+    min-height: 100vh; /* Ensure full viewport height */
     padding:0.5rem;
 }
 .sidebar{
@@ -21,7 +25,8 @@ body{
     flex:1;
     border-radius:1rem;
     overflow:auto;
-    padding: 0 1.5rem 0 1.5rem;
+    padding: 0 1.5rem 72px 1.5rem; /* Add padding for music-player */
+    /* padding: 0 1.5rem 0 1.5rem;*/
     
 }
 .music-player{
@@ -48,6 +53,7 @@ a{
     line-height: 2.5rem;
     opacity:0.7;
     padding:0.5rem 0.75rem;
+    cursor:pointer;
 }
 .nav-option:hover{
     opacity:1;
@@ -55,10 +61,15 @@ a{
 
 .nav-option i{
     font-size:1.25rem;
+    cursor:pointer;
+    
 }
 .nav-option a{
     font-size: 1rem;
     margin-left: 1rem;
+}
+.sticky-nav-options i{
+    cursor: pointer;
 }
 .library{
     background-color: #121212;
@@ -113,6 +124,7 @@ a{
     margin-top: 0.5rem;
     height:2rem;
     width: fit-content;
+    cursor:pointer
 }
 .dark-badge{
     background-color: #000;
@@ -140,6 +152,7 @@ a{
 .nav-item{
     margin-right:1rem;
 }
+
 @media(max-width: 1000px){
     .hide{
         display:none;
@@ -243,3 +256,97 @@ a{
     margin-top:-6px;
 
 }
+
+/* gpt */
+
+@media (max-width: 480px) {
+    body {
+      overflow: auto; /* Allow scrolling for small screens */
+    }
+  
+    .main {
+      flex-direction: column; /* Stack sidebar and content vertically */
+      height: auto; /* Adjust height */
+    }
+  
+    .sidebar {
+      display:none;
+      width: 100%; /* Take full width on smaller screens */
+      margin-right: 0; /* Remove margin */
+      margin-bottom: 1rem; /* Add spacing below */
+    }
+  
+    .main-content {
+      padding: 1rem; /* Adjust padding for readability */
+    }
+  
+    .music-player {
+        position: fixed; /* Keep it fixed at the bottom */
+        bottom: 0;
+        width: 100%; /* Ensure it spans the full width */
+        height: 56px; /* Adjust height for smaller screens */
+        z-index: 100; /* Ensure it stays on top of other content */
+        padding: 0.5rem; /* Optional: Add padding for better appearance */
+    }
+  
+    .nav {
+      flex-direction: row; /* Switch navigation to horizontal for better fit */
+      justify-content: space-around; /* Space out items */
+      height: auto; /* Adjust height */
+      padding: 0.5rem; /* Reduce padding */
+    }
+  
+    
+    
+     
+  
+    .player-controls {
+        width: 60%; /* Further adjust width for smaller screens */
+        padding: 0.5rem; /* Optional: Add padding */
+
+
+    }
+  
+    .progress-bar {
+        width: 100vw; /* Ensure it covers the full viewport width */
+        margin: 0; /* Remove any margin */
+    
+      
+    }
+
+    /* Reduce the size of all cards for mobile screens */
+
+    .card {
+        width: 100px; /* Reduce the width */
+        height: 200px; /* Reduce the height */
+        padding: 0.5rem; /* Adjust padding for smaller size */
+        margin-left: 1rem; /* Adjust margins */
+        margin-top: 0.75rem; /* Adjust margins */
+    }
+
+    .card-img {
+        width: 100%; /* Keep image responsive */
+        height: auto; /* Ensure it scales proportionally */
+        border-radius: 0.5rem; /* Keep consistent rounding */
+    }
+
+    .card-title {
+        font-size: 0.85rem; /* Reduce font size for title */
+    }
+
+    .card-info {
+        font-size: 0.65rem; /* Reduce font size for info text */
+    }
+}
+
+  
+  
+
+  
+
+  
+   
+
+
+  
+
